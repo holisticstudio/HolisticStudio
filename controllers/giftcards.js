@@ -1,10 +1,10 @@
-const contactRouter = require ('express').Router();
+const giftRouter = require ('express').Router();
 const nodemailer = require ('nodemailer'); // para enviar emails
 
-contactRouter.post('/', async (request, response) => {
+giftRouter.post('/', async (request, response) => {
 
   try {
-      const { from, to, phone, service, message} = request.body
+      const { from, to, fromPhone, toPhone, service, message} = request.body
 
       const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -22,11 +22,12 @@ contactRouter.post('/', async (request, response) => {
         to: process.env.HOLISTIC_EMAIL, // list of receivers
         subject: "NEW GIFT CARD SOLD", // Subject line
         text: ``,
-        html: `<p>DE: ${from}</p> 
-              <p>TO: ${to}</p> 
-              <p>phone: ${phone}</p>
-              <p>service: ${service}</p>
-              <p>message: ${message}</p>`,
+        html: `<p>DE: ${from}</p>
+              <p>TELEFONO COMPRADOR: ${fromPhone}</p>
+              <p>PARA: ${to}</p>
+              <p>TELEFONO BENEFICIARIO: ${toPhone}</p>
+              <p>SERVICIO: ${service}</p>
+              <p>MENSAJE: ${message}</p>`,
               
               // html body, 
       });
@@ -39,4 +40,4 @@ contactRouter.post('/', async (request, response) => {
 
     });
     
-module.exports = contactRouter;
+module.exports = giftRouter;
