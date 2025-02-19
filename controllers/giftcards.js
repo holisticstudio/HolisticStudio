@@ -31,7 +31,7 @@ giftRouter.post('/', async (request, response) => {
               <p>Servicio: ${service}</p>
               <p>Mensaje: ${message}</p> <br /> 
                Para confirmar tu orden, por favor escríbenos a este link: wa.me/584123313135
-               para efectuar tu pago. <br /> 
+               para efectuar el pago. <br /> 
               Si deseas una Gift Card física tiene un costo de $3 y requiere ser retirada en
               nuestro studio de Los Palos Grandes. De ser en digital, no tiene coste adicional
               y se envía mediante WhatsApp. <br /> <br />3
